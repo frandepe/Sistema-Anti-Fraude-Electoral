@@ -1,3 +1,4 @@
+import { Form } from '#/pages/form';
 import { LoadingPage } from '#/pages/loading-page';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -28,6 +29,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/profile" element={<Profile />} />
 
     {/* Steps Formulario */}
+    <Route path="/form" element={<Form />} />
     <Route path="/upload-certificate" element={<UploadCertificate />} />
     <Route path="/verify-certificate" element={<VerifyCertificate />} />
     <Route path="/load-information" element={<LoadInformation />} />

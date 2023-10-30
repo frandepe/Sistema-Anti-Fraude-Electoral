@@ -7,8 +7,11 @@ import FormHeader from '#/components/formHeader';
 
 import { ProgressStepStatus } from '#/components/progressIndicator/types';
 import './styles.css';
+import { useContext } from 'react';
+import { FormContext } from '#/context/form';
 
 const VerifyCertificate = () => {
+  const { paginationForm, count } = useContext(FormContext);
   return (
     <section className="items-center flex flex-col justify-center text-center">
       <FormHeader routerLink="/" title="Cargá el certificado del fiscal" />
@@ -73,6 +76,7 @@ const VerifyCertificate = () => {
               className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
               type="submit"
               label="Enviar imagen"
+              onClick={() => paginationForm(count + 1)}
             />
             <Button
               className="w-full p-3 text-xl font-semibold tracking-wider border-2 border-violet-brand text-violet-brand hover:border-violet-light mt-4 rounded-xl"

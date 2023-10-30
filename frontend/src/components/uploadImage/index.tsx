@@ -1,10 +1,14 @@
+import { FormContext } from '#/context/form';
 import { getBase64 } from '#/utils';
+import { useContext } from 'react';
 
 const UploadImage = ({ onUpload }: { onUpload: (image: string) => void }) => {
+  const { paginationForm, count } = useContext(FormContext);
   async function onUploadInternal(file: File | null | undefined) {
     if (!file) return;
     const base64 = await getBase64(file);
     onUpload(base64);
+    paginationForm(count + 1);
   }
 
   return (
